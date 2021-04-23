@@ -16,6 +16,7 @@ const Post = ({ post, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem('profile'));
 
   const Likes = () => {
+    if (post.likes === undefined) return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
     if (post.likes.length > 0) {
       return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
         ? (
